@@ -3,9 +3,12 @@ import { ProductWrapper } from "../styles";
 
 const ProductItem = (props) => {
   const product = props.product;
-
+  const handleDelete = () => {
+    alert(`Delete cookieId: ${product.id}`);
+  };
   return (
     <ProductWrapper>
+      <button onClick={handleDelete}>Delete</button>
       <img
         onClick={() => props.setProduct(product)}
         alt={product.name}

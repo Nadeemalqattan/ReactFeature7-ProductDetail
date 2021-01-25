@@ -8,6 +8,9 @@ import products from "../products";
 import { useState } from "react";
 
 const ProductList = (props) => {
+  const deleteProduct = (productId) => {
+    console.log(`Delete cookie with ID ${productId}`);
+  };
   const [query, setQuery] = useState("");
 
   const productList = products
