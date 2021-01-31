@@ -4,22 +4,20 @@ import { ListWrapper } from "../styles";
 import ProductItem from "./ProductItem";
 import SearchBar from "./SearchBar";
 // Data
-import products from "../products";
 import { useState } from "react";
 
 const ProductList = (props) => {
-  const deleteProduct = (productId) => {
-    console.log(`Delete cookie with ID ${productId}`);
-  };
   const [query, setQuery] = useState("");
-
-  const productList = products
-    .filter((product) => product.name.includes(query))
+  const productList = props.products
+    .filter((product) =>
+      product.name.toLowerCase().includes(query.toLowerCase())
+    )
     .map((product) => (
       <ProductItem
         product={product}
         key={product.id}
         setProduct={props.setProduct}
+        deleteProduct={props.deleteProduct}
       />
     ));
 
